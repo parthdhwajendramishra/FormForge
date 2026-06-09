@@ -10,7 +10,8 @@ import { RendererSelector } from './RendererSelector';
 export const CodeGenerator = () => {
   const activeForm = useActiveForm();
   const rendererType = useUiStore((s) => s.rendererType);
-  const generated = useGeneratedCode(activeForm, rendererType);
+  const validationLibrary = useUiStore((s) => s.validationLibrary);
+  const generated = useGeneratedCode(activeForm, rendererType, validationLibrary);
 
   if (!activeForm) {
     return (

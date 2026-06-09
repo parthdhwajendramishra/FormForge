@@ -1,5 +1,6 @@
 import { create } from 'zustand';
-import type { RendererType, ValidationLibrary } from '../services/renderers/types';
+import type { RendererType } from '../services/renderers/types';
+import type { ValidationLibrary } from '../services/validationEngines/types';
 
 export type RuleBuilderTab = 'visibility' | 'validation' | 'dependency' | 'repeat';
 export type BuilderTab = 'design' | 'preview';

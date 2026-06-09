@@ -1,16 +1,19 @@
-import { CssBaseline, ThemeProvider } from '@mui/material';
-import { AppLayout } from './components/layout/AppLayout';
-import { useFormPersistence } from './hooks/useFormPersistence';
-import { muiTheme } from './theme/muiTheme';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { LandingPage } from './landing/LandingPage';
+import { ForgeApp } from './pages/ForgeApp';
+import { ThemeModeProvider } from './theme/ThemeModeProvider';
 
 function App() {
-  useFormPersistence();
-
   return (
-    <ThemeProvider theme={muiTheme}>
-      <CssBaseline />
-      <AppLayout />
-    </ThemeProvider>
+    <ThemeModeProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/app" element={<ForgeApp />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </BrowserRouter>
+    </ThemeModeProvider>
   );
 }
 
