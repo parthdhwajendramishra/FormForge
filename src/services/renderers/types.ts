@@ -1,23 +1,22 @@
 import type { FormDefinition } from '../../types';
 import type { GeneratedCode } from '../codeGenerator/types';
+import type { ValidationLibrary } from '../validationEngines/types';
 
 export type RendererType = 'mui' | 'jsx';
-export type ValidationLibrary = 'yup';
 
 export interface RendererOption {
   id: RendererType;
   label: string;
 }
 
-export interface ValidationOption {
-  id: ValidationLibrary;
-  label: string;
+export interface GenerateOptions {
+  validationLibrary: ValidationLibrary;
 }
 
 export interface FormRenderer {
   id: RendererType;
   label: string;
-  generate: (form: FormDefinition) => GeneratedCode;
+  generate: (form: FormDefinition, options: GenerateOptions) => GeneratedCode;
 }
 
 export const RENDERER_OPTIONS: RendererOption[] = [
@@ -25,6 +24,6 @@ export const RENDERER_OPTIONS: RendererOption[] = [
   { id: 'jsx', label: 'Plain React JSX' },
 ];
 
-export const VALIDATION_OPTIONS: ValidationOption[] = [
-  { id: 'yup', label: 'Yup' },
-];
+// Re-export validation options from validation engines (single source of truth)
+export type { ValidationLibrary } from '../validationEngines/types';
+export { VALIDATION_ENGINE_OPTIONS as VALIDATION_OPTIONS } from '../validationEngines/types';

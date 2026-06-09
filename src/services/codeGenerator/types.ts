@@ -2,9 +2,11 @@ import type { FormDefinition } from '../../types';
 
 export interface GeneratedCode {
   component: string;
-  yupSchema: string;
+  validationSchema: string;
   initialValues: string;
   fileName: string;
+  /** @deprecated Use validationSchema */
+  yupSchema: string;
 }
 
 export interface CodeGeneratorAdapter {

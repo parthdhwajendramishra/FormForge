@@ -1,6 +1,8 @@
 import { FormControl, InputLabel, MenuItem, Select, Stack } from '@mui/material';
-import { RENDERER_OPTIONS, VALIDATION_OPTIONS } from '../../services/renderers';
-import type { RendererType, ValidationLibrary } from '../../services/renderers/types';
+import { RENDERER_OPTIONS } from '../../services/renderers';
+import { VALIDATION_ENGINE_OPTIONS } from '../../services/validationEngines';
+import type { RendererType } from '../../services/renderers/types';
+import type { ValidationLibrary } from '../../services/validationEngines/types';
 import { useUiStore } from '../../store/uiStore';
 
 export const RendererSelector = () => {
@@ -33,7 +35,7 @@ export const RendererSelector = () => {
           value={validationLibrary}
           onChange={(e) => setValidationLibrary(e.target.value as ValidationLibrary)}
         >
-          {VALIDATION_OPTIONS.map((option) => (
+          {VALIDATION_ENGINE_OPTIONS.map((option) => (
             <MenuItem key={option.id} value={option.id}>
               {option.label}
             </MenuItem>

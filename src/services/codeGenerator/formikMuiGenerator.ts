@@ -7,10 +7,14 @@ import type { CodeGeneratorAdapter, GeneratedCode } from './types';
 
 export const formikMuiGenerator: CodeGeneratorAdapter = {
   id: 'formik-mui',
-  generate: (form: FormDefinition): GeneratedCode => ({
-    component: generateComponent(form),
-    yupSchema: generateYupSchema(form),
-    initialValues: generateInitialValues(form),
-    fileName: `${toComponentName(form.name)}.tsx`,
-  }),
+  generate: (form: FormDefinition): GeneratedCode => {
+    const yupSchema = generateYupSchema(form);
+    return {
+      component: generateComponent(form),
+      validationSchema: yupSchema,
+      yupSchema,
+      initialValues: generateInitialValues(form),
+      fileName: `${toComponentName(form.name)}.tsx`,
+    };
+  },
 };
