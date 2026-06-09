@@ -33,39 +33,6 @@ export const AUDIENCE = [
   },
 ];
 
-export const LANDING_TEMPLATES = [
-  {
-    name: 'Employee Onboarding',
-    rules: 'Multiple field types, required rules, file upload',
-    templateId: 'employee-onboarding',
-  },
-  {
-    name: 'KYC Form',
-    rules: 'Country-based visibility — PAN for India, SSN for USA',
-    templateId: 'kyc',
-  },
-  {
-    name: 'Employment Verification',
-    rules: 'Conditional validation when employment status is employed',
-    templateId: 'employment-verification',
-  },
-  {
-    name: 'Registration Form',
-    rules: 'Age-based conditional visibility and validation',
-    templateId: 'registration',
-  },
-  {
-    name: 'Country Based Logic',
-    rules: 'Field dependencies driven by country selection',
-    templateId: 'kyc',
-  },
-  {
-    name: 'Age Based Logic',
-    rules: 'Show driving license at 18+, guardian info under 18',
-    templateId: 'registration',
-  },
-];
-
 export const FEATURES = [
   { title: 'Visual Form Builder', description: 'Define fields quickly.' },
   { title: 'Validation Engine', description: 'Configure Yup and Zod validations visually.' },

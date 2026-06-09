@@ -1,7 +1,7 @@
 import { Box, Button, Card, CardContent, Chip, Grid, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import { FEATURED_TEMPLATES } from '../../templates';
 import { LandingSection } from '../LandingSection';
-import { LANDING_TEMPLATES } from '../landingData';
 
 export const TemplatesSection = () => {
   const navigate = useNavigate();
@@ -14,8 +14,8 @@ export const TemplatesSection = () => {
       bgcolor="background.paper"
     >
       <Grid container spacing={2}>
-        {LANDING_TEMPLATES.map((template) => (
-          <Grid key={template.name} size={{ xs: 12, sm: 6, md: 4 }}>
+        {FEATURED_TEMPLATES.map((template) => (
+          <Grid key={template.id} size={{ xs: 12, sm: 6, md: 4 }}>
             <Card
               sx={{
                 height: '100%',
@@ -26,15 +26,20 @@ export const TemplatesSection = () => {
                   borderColor: 'primary.main',
                 },
               }}
-              onClick={() => navigate(`/app?template=${template.templateId}`)}
+              onClick={() => navigate(`/app?template=${template.id}`)}
             >
               <CardContent sx={{ p: 3 }}>
                 <Typography variant="subtitle1" sx={{ fontWeight: 600, mb: 1 }}>
                   {template.name}
                 </Typography>
                 <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.6, mb: 2 }}>
-                  {template.rules}
+                  {template.marketingDescription ?? template.description}
                 </Typography>
+                <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5, mb: 2 }}>
+                  {template.features.slice(0, 3).map((feature) => (
+                    <Chip key={feature} label={feature} size="small" variant="outlined" sx={{ fontSize: '0.7rem' }} />
+                  ))}
+                </Box>
                 <Chip label="View template" size="small" variant="outlined" />
               </CardContent>
             </Card>
