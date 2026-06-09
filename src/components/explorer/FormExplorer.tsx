@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { useFormStore } from '../../store/formStore';
 import { useUiStore } from '../../store/uiStore';
 import { ConfirmDialog } from '../common/ConfirmDialog';
+import { FormForgeLogo } from '../common/FormForgeLogo';
 import { ExportJsonButton } from './ExportJsonButton';
 import { FormListItem } from './FormListItem';
 import { ImportJsonDialog } from './ImportJsonDialog';
@@ -37,9 +38,9 @@ export const FormExplorer = () => {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
       <Box sx={{ p: 2 }}>
-        <Typography variant="h6" gutterBottom>
-          FormForge
-        </Typography>
+        <Box sx={{ mb: 2 }}>
+          <FormForgeLogo height={32} />
+        </Box>
         <Button
           variant="contained"
           startIcon={<AddIcon />}

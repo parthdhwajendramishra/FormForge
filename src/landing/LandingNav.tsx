@@ -8,9 +8,9 @@ import {
   IconButton,
   Stack,
   Toolbar,
-  Typography,
 } from '@mui/material';
-import { Link as RouterLink, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { FormForgeLogo } from '../components/common/FormForgeLogo';
 import { useThemeMode } from '../theme/ThemeModeProvider';
 
 const NAV_LINKS = [
@@ -37,20 +37,9 @@ export const LandingNav = () => {
     >
       <Container maxWidth="lg">
         <Toolbar disableGutters sx={{ minHeight: 64, gap: 2 }}>
-          <Typography
-            component={RouterLink}
-            to="/"
-            variant="h6"
-            sx={{
-              fontWeight: 700,
-              color: 'text.primary',
-              textDecoration: 'none',
-              letterSpacing: '-0.02em',
-              mr: 2,
-            }}
-          >
-            FormForge
-          </Typography>
+          <Box sx={{ mr: 2 }}>
+            <FormForgeLogo height={36} />
+          </Box>
 
           <Stack
             direction="row"
